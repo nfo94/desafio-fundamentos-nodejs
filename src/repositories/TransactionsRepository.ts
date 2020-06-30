@@ -27,7 +27,17 @@ class TransactionsRepository {
     // TODO
   }
 
-  public create({ title, value, type }: CreateTransactionDTO): Transaction {}
+  public create({ title, value, type }: CreateTransactionDTO): Transaction {
+    const transaction = new Transaction({
+      title,
+      value,
+      type,
+    });
+
+    this.transactions.push(transaction);
+
+    return transaction;
+  }
 }
 
 export default TransactionsRepository;
